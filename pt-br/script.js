@@ -1,4 +1,4 @@
-const SIGNAL_SERVER = 'ws://raising-initiative-lan-largest.trycloudflare.com';
+const SIGNAL_SERVER = 'wss://raising-initiative-lan-largest.trycloudflare.com';
 
 let params = new URLSearchParams(document.location.search);
 

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procrastinacao</title>
+    <style>
+        body{
+            color: white;
+            background: url(https://i.ibb.co/Q8Mrjtw/purpl014.jpg);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container{
+            background-color: aliceblue;
+            width: 640px;
+            height: 480px;
+            margin: auto;
+            color: black;
+            padding: 12px;
+        }
+
+        .salaOpcao{
+            width: calc(100% - 12px);
+            border: 1px black solid;
+            padding-left: 12px;
+        }
+
+        .salas{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .messages {
+            width: calc(100% - 12px);
+            border: 1px black solid;
+            height: 430px;
+            padding-left: 12px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body id="bodyContainer"><br>
+    <audio src="yougotmail.mp3" id="yove-got-mail"></audio>
+    <center>
+        <img id="logo" width="300px">
+        <p>Devia estar fazendo algo melhor?</p>
+    </center>
+    <div class="container">
+        <div class="messages">
+            <p>Bem vindo ao chat, respeite os outros, as regras da sala e divirta-se!!</p>
+        </div><br>
+        <input style="width: 573px;" id="userMessage">&nbsp;<button onclick="prepareMessage();">Enviar</button>
+    </div>
+    <script src="script.js"></script>
+    <script src="random.js"></script>
+</body>
+</html>

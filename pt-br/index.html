@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procrastination</title>
+    <style>
+        body{
+            color: white;
+            background: url(https://i.ibb.co/Q8Mrjtw/purpl014.jpg);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container{
+            background-color: aliceblue;
+            width: 640px;
+            height: 480px;
+            margin: auto;
+            color: black;
+            padding: 12px;
+        }
+
+        .salaOpcao{
+            width: calc(100% - 12px);
+            border: 1px black solid;
+            padding-left: 12px;
+        }
+
+        .salas{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body id="bodyContainer"><br>
+    <center>
+        <img src="" id="logo" width="300px">
+        <p>Você deveria estar fazendo algo agora?</p>
+    </center>
+    <div class="container">
+        <h2>Bem vindo ao procrastinação.</h2>
+        Escolha um nome de usuario: <input placeholder="usernameEpic123" id="username" onchange="saveUsername()">
+        <h2>Escolha uma sala:</h2>
+        <div class="salas">
+            <a href='sala.html?sala=sala1'><div class="salaOpcao">
+                <h3>Sala 1</h3>
+                <p id="counter-1"></p>
+            </div></a>
+            <a href='sala.html?sala=sala2'><div class="salaOpcao">
+                <h3>Sala 2</h3>
+                <p id="counter-2"></p>
+            </div></a>
+            <a href='sala.html?sala=sala3'><div class="salaOpcao">
+                <h3>Sala 3</h3>
+                <p id="counter-3"></p>
+            </div></a>
+            <a href='sala.html?sala=sala4'><div class="salaOpcao">
+                <h3>Sala 4</h3>
+                <p id="counter-4"></p>
+            </div></a>
+        </div>
+        <p>Teremos mais no futuro....</p>
+    </div>
+    <script src="random.js"></script>
+    <script>
+        function saveUsername(){
+            window.localStorage.setItem("username", document.getElementById('username').value);
+        }
+
+        async function getUsersInRoom() {
+            const response = await fetch("https://raising-initiative-lan-largest.trycloudflare.com/api/rooms");
+            const users = await response.json();
+
+            console.log(users);
+
+            document.getElementById("counter-1").innerText = `Usuarios: ${users.sala1.users}`;
+            document.getElementById("counter-2").innerText = `Usuarios: ${users.sala2.users}`;
+            document.getElementById("counter-3").innerText = `Usuarios: ${users.sala3.users}`;
+            document.getElementById("counter-4").innerText = `Usuarios: ${users.sala4.users}`;
+        }
+
+        getUsersInRoom();
+    </script>
+</body>
+</html>
